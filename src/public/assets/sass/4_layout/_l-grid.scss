@@ -1,0 +1,15 @@
+/* ------------------------------------------------------------------------------------------ */
+/* GRID */
+/* ------------------------------------------------------------------------------------------ */
+
+/* L-GRID */
+.l-grid {
+   padding: convert-px-rem(30);
+   min-height: 78vh;
+
+   @include create-mq($grid-bp-lg) {
+      display: grid;
+      grid-template-columns: minmax(1rem, max-content) 1fr;
+      grid-column-gap: convert-px-rem(30);
+   }
+}

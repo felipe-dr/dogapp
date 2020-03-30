@@ -1,0 +1,36 @@
+/* ------------------------------------------------------------------------------------------ */
+/* BASE_FUNCTIONS */
+/* ------------------------------------------------------------------------------------------ */
+
+/* GET-BASE-VALUE */
+@function get-base-value($base) {
+   @return $base / ($base * 0 + 1);
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* UNIT-CONVERSION_FUNCTIONS */
+/* ------------------------------------------------------------------------------------------ */
+
+/* CONVERT-PX-REM */
+@function convert-px-rem($px) {
+   $base-size: get-base-value($base / 100);
+   $base-px-size: 16 * $base-size;
+   $font-size: (get-base-value($px) / $base-px-size) * 1rem;
+   
+   @return $font-size;
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* ZINDEX_FUNCTIONS */
+/* ------------------------------------------------------------------------------------------ */
+
+/* ZINDEX */
+@function zindex($name) {
+   @if index($Z-INDEXES, $name) {
+      @return (length($Z-INDEXES) - index($Z-INDEXES, $name)) + 1;
+   } @else {
+      @warn 'There is no item "#{$name}" in this list; choose one of: #{$Z-INDEXES}';
+      
+      @return null;
+   }
+}

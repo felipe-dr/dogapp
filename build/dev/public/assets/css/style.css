@@ -1,0 +1,409 @@
+@charset "UTF-8";
+/* ------------------------------------------------------------------------------------------ */
+/* 1_CONFIG */
+/* ------------------------------------------------------------------------------------------ */
+:root {
+  --color-primary: #7A6851;
+  --color-primary-transp: rgba(122, 104, 81, 0.3);
+  --color-secondary: #F5DFBF;
+  --color-tertiary: #fff;
+  --color-quaternary: #000;
+  --transition-slowest: 3s;
+  --transition-slow: 1s;
+  --transition-normal: 0.5s;
+  --transition-medium: 0.3s; }
+
+/* ------------------------------------------------------------------------------------------ */
+/* BASE_VARIABLES */
+/* ------------------------------------------------------------------------------------------ */
+/* 10px/16px ==> 0.625 x 100% ==> 1rem = 10px */
+/* ------------------------------------------------------------------------------------------ */
+/* FONT_VARIABLES */
+/* ------------------------------------------------------------------------------------------ */
+/* px */
+/* ------------------------------------------------------------------------------------------ */
+/* GRID_VARIABLES */
+/* ------------------------------------------------------------------------------------------ */
+/* GRID-BREAKPOINTS */
+/* 576px/16px */
+/*   768/16px */
+/*   992/16px */
+/*  1200/16px */
+/* GRID_MAP */
+/* ------------------------------------------------------------------------------------------ */
+/* MARGIN/PADDING_VARIABLES */
+/* ------------------------------------------------------------------------------------------ */
+/* SIDE_POSITIONS */
+/* (3) CALC_SPACING */
+/* ------------------------------------------------------------------------------------------ */
+/* px */
+/* LAYOUT_CALC */
+/* ------------------------------------------------------------------------------------------ */
+/* Z-INDEX_VARIABLES */
+/* ------------------------------------------------------------------------------------------ */
+/* Z-INDEXES */
+/* ------------------------------------------------------------------------------------------ */
+/* BASE_FUNCTIONS */
+/* ------------------------------------------------------------------------------------------ */
+/* GET-BASE-VALUE */
+/* ------------------------------------------------------------------------------------------ */
+/* UNIT-CONVERSION_FUNCTIONS */
+/* ------------------------------------------------------------------------------------------ */
+/* CONVERT-PX-REM */
+/* ------------------------------------------------------------------------------------------ */
+/* ZINDEX_FUNCTIONS */
+/* ------------------------------------------------------------------------------------------ */
+/* ZINDEX */
+/* ------------------------------------------------------------------------------------------ */
+/* VAR_MIXINS */
+/* ------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------ */
+/* GRID_MIXINS */
+/* ------------------------------------------------------------------------------------------ */
+/* CREATE-MQ */
+/* CREATE-COL-CLASSES */
+/* ------------------------------------------------------------------------------------------ */
+/* PSEUDO-ELEMENT_MIXINS */
+/* ------------------------------------------------------------------------------------------ */
+/* PSEUDO-ELEMENT */
+/* ------------------------------------------------------------------------------------------ */
+/* 2_VENDORS */
+/* ------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------ */
+/* 3_BASE */
+/* ------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------ */
+/* BASE */
+/* ------------------------------------------------------------------------------------------ */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit; }
+
+::-moz-selection {
+  background-color: #7A6851;
+  background-color: var(--color-primary);
+  color: #fff;
+  color: var(--color-tertiary); }
+
+::selection {
+  background-color: #7A6851;
+  background-color: var(--color-primary);
+  color: #fff;
+  color: var(--color-tertiary); }
+
+html {
+  font-size: 62.5%;
+  /* 10px/16px ==> 0.625 x 100% ==> 1rem = 10px */ }
+  @media screen and (min-width: 62em) {
+    html {
+      font-size: 68.3592%; } }
+
+body {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+img {
+  /* Remove espaço vazio a mais */
+  max-width: 100%;
+  border: 0; }
+
+input,
+select,
+button {
+  width: 100%;
+  margin-bottom: 3rem; }
+
+/* ------------------------------------------------------------------------------------------ */
+/* BODY_TYPOGRAPHY */
+/* ------------------------------------------------------------------------------------------ */
+/* BODY */
+body {
+  color: #000;
+  color: var(--color-quaternary);
+  font-family: 'Indie Flower', sans-serif;
+  font-size: 2.5rem;
+  line-height: 1.7; }
+
+/* ------------------------------------------------------------------------------------------ */
+/* FORM_TYPOGRAPHY */
+/* ------------------------------------------------------------------------------------------ */
+input,
+select,
+button {
+  font-family: inherit;
+  font-size: 2rem; }
+
+/* ------------------------------------------------------------------------------------------ */
+/* T1_TYPOGRAPHY */
+/* ------------------------------------------------------------------------------------------ */
+/* T1 */
+.t1 {
+  color: #fff;
+  color: var(--color-tertiary);
+  font-family: 'Dancing Script';
+  font-size: 6rem; }
+
+/* ------------------------------------------------------------------------------------------ */
+/* T2_TYPOGRAPHY */
+/* ------------------------------------------------------------------------------------------ */
+/* T2 */
+.t2 {
+  color: #F5DFBF;
+  color: var(--color-secondary);
+  font-size: 5rem; }
+
+/* ------------------------------------------------------------------------------------------ */
+/* TEXT_TYPOGRAPHY */
+/* ------------------------------------------------------------------------------------------ */
+/* TEXT */
+.text {
+  font-size: 1.5rem; }
+
+/* ------------------------------------------------------------------------------------------ */
+/* FLEXBOX_UTILITIES */
+/* ------------------------------------------------------------------------------------------ */
+/* DISPLAY */
+img, .c-form__label {
+  display: block; }
+
+.c-icon, .c-button, .c-button:link, .c-button:visited {
+  display: inline-block; }
+
+/* FLEX-DIRECTION */
+/* FLEX-WRAP */
+/* FLEX-ALIGN-ITEMS */
+/* FLEX-JUSTIFY-CONTENT */
+/* FLEX-COMBO */
+/* ------------------------------------------------------------------------------------------ */
+/* MARGIN/PADDING_UTILITIES */
+/* ------------------------------------------------------------------------------------------ */
+/* CALC_SPACING */
+/* ------------------------------------------------------------------------------------------ */
+
+/* ------------------------------------------------------------------------------------------ */
+/* FONT/TEXT_UTILITIES */
+/* ------------------------------------------------------------------------------------------ */
+/* FONT-STYLE */
+.u-bold {
+  font-weight: bold !important; }
+
+body, .t1, .t2 {
+  font-weight: normal; }
+
+/* TEXT-DECORATION */
+.c-button, .c-button:link, .c-button:visited {
+  text-decoration: none; }
+
+.c-button:active, .c-button:focus {
+  outline: none; }
+
+/* TEXT-TRANSFORM */
+/* TEXT-ALIGN */
+.l-footer, .c-button, .c-button:link, .c-button:visited {
+  text-align: center; }
+
+/* ------------------------------------------------------------------------------------------ */
+/* BACKGROUND_UTILITIES */
+/* ------------------------------------------------------------------------------------------ */
+/* BACKGROUND-SIZE */
+/* BACKGROUND-POSITION */
+/* BACKGROUND-COMBO */
+/* ------------------------------------------------------------------------------------------ */
+/* ICON_UTILITIES */
+/* ------------------------------------------------------------------------------------------ */
+/* ICON */
+.c-icon {
+  width: 1em;
+  /* Deve-se utilizar "em" para ser possível alterar o tamanho do font-size, já que a fonte raiz está em "rem" */
+  height: 1em;
+  /* Deve-se utilizar "em" para ser possível alterar o tamanho do font-size, já que a fonte raiz está em "rem" */
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+  vertical-align: middle; }
+
+/* ------------------------------------------------------------------------------------------ */
+/* MIXED_UTILITIES */
+/* ------------------------------------------------------------------------------------------ */
+/* CURSOR */
+.c-button, .c-button:link, .c-button:visited {
+  cursor: pointer; }
+
+/* ------------------------------------------------------------------------------------------ */
+/* 4_LAYOUT */
+/* ------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------ */
+/* GRID */
+/* ------------------------------------------------------------------------------------------ */
+/* L-GRID */
+.l-grid {
+  padding: 3rem;
+  min-height: 78vh; }
+  @media screen and (min-width: 62em) {
+    .l-grid {
+      display: grid;
+      grid-template-columns: minmax(1rem, -webkit-max-content) 1fr;
+      grid-template-columns: minmax(1rem, max-content) 1fr;
+      grid-column-gap: 3rem; } }
+
+/* ------------------------------------------------------------------------------------------ */
+/* HEADER */
+/* ------------------------------------------------------------------------------------------ */
+/* L-HEADER */
+.l-header {
+  background-color: #7A6851;
+  background-color: var(--color-primary);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 2rem;
+  border-bottom: 0.5rem solid #000; }
+
+/* ------------------------------------------------------------------------------------------ */
+/* CONTENT */
+/* ------------------------------------------------------------------------------------------ */
+/* L-CONTENT */
+.l-content__result {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 0 2rem 2rem 2rem;
+  border: 0.5rem dashed #000; }
+
+.l-content__title {
+  background-color: rgba(122, 104, 81, 0.3);
+  background-color: var(--color-primary-transp);
+  position: relative;
+  top: 3rem;
+  line-height: normal;
+  text-align: center;
+  -webkit-box-shadow: 0 0.3rem 0.3rem #000;
+  box-shadow: 0 0.3rem 0.3rem #000; }
+
+.l-content__img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+  .l-content__img > img {
+    height: 16rem; }
+    @media screen and (min-width: 36em) {
+      .l-content__img > img {
+        height: 25rem; } }
+    @media screen and (min-width: 62em) {
+      .l-content__img > img {
+        height: 35rem; } }
+
+/* ------------------------------------------------------------------------------------------ */
+/* FOOTER */
+/* ------------------------------------------------------------------------------------------ */
+/* L-FOOTER */
+.l-footer {
+  background-color: #7A6851;
+  background-color: var(--color-primary);
+  padding: 1rem; }
+
+/* ------------------------------------------------------------------------------------------ */
+/* 5_MODULE */
+/* ------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------ */
+/* C-FORM_MODULE */
+/* ------------------------------------------------------------------------------------------ */
+/* C-FORM */
+.c-form {
+  background-color: #F5DFBF;
+  background-color: var(--color-secondary); }
+
+/* ------------------------------------------------------------------------------------------ */
+/* C-BUTTON_MODULE */
+/* ------------------------------------------------------------------------------------------ */
+/* C-BUTTON */
+.c-button {
+  -webkit-box-shadow: 0 0.3rem 0.3rem #000;
+  box-shadow: 0 0.3rem 0.3rem #000;
+  /* C-BUTTON / C-BUTTON:LINK / C-BUTTON:VISITED */
+  /* C-BUTTON:ACTIVE / C-BUTTON:FOCUS */
+  /* C-BUTTON--DEFAULT / C-BUTTON--DEFAULT:LINK / C-BUTTON--DEFAULT:VISITED */
+  /* C-BUTTON--COLOR-PRIMARY / C-BUTTON--COLOR-PRIMARY:LINK / C-BUTTON--COLOR-PRIMARY:VISITED */
+  /* C-BUTTON--HOVER-PRIMARY */ }
+  .c-button, .c-button:link, .c-button:visited {
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    -webkit-transition: var(--transition-medium);
+    transition: var(--transition-medium);
+    border: none;
+    line-height: inherit;
+    /* Para manter o elemento <button> com a mesma proporção de um elemento <a> */
+    font-size: 2.5rem;
+    color: inherit; }
+  .c-button:active, .c-button:focus {
+    /* Remove a borda azul quando em active ou com foucs */ }
+  .c-button--default, .c-button--default:link, .c-button--default:visited {
+    padding: 1rem 2rem; }
+  .c-button--color-primary, .c-button--color-primary:link, .c-button--color-primary:visited {
+    background-color: #7A6851;
+    background-color: var(--color-primary);
+    color: #fff;
+    color: var(--color-tertiary); }
+  @media screen and (min-width: 48em) {
+    .c-button--hover-primary:hover {
+      color: #F5DFBF;
+      color: var(--color-secondary); } }
+
+/* ------------------------------------------------------------------------------------------ */
+/* C-STATUS */
+/* ------------------------------------------------------------------------------------------ */
+/* C-STATUS */
+.c-status {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding-bottom: 2rem;
+  color: green;
+  font-size: 2rem; }
+
+/* ------------------------------------------------------------------------------------------ */
+/* C-ICON_MODULE */
+/* ------------------------------------------------------------------------------------------ */
+/* C-ICON */
+.c-icon {
+  /* C-ICON--SIZE */
+  /* C-ICON--ROTATE */
+  /* C-ICON--COLOR */ }
+    .c-icon--size-medium {
+      font-size: 4rem;
+      /* 40px/10px */ }
+    .c-icon--color-secondary {
+      color: #F5DFBF;
+      color: var(--color-secondary); }
+
+/* C-ICON__PAW_MODULE */
+/* ------------------------------------------------------------------------------------------ */
+.c-icon__paw {
+  margin-left: 0.5rem; }
+
+/* ------------------------------------------------------------------------------------------ */
+/* 6_STATE */
+/* ------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------ */
+/* 7_THEME */
+/* ------------------------------------------------------------------------------------------ */

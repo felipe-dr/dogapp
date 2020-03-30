@@ -1,0 +1,165 @@
+/* ------------------------------------------------------------------------------------------ */
+/* FLEXBOX_UTILITIES */
+/* ------------------------------------------------------------------------------------------ */
+
+/* DISPLAY */
+%u-display-flex { display: flex; }
+%u-display-block { display: block; }
+%u-display-inline-block { display: inline-block; }
+%u-display-none { display: none; }
+
+/* FLEX-DIRECTION */
+%u-flex-direction-row { flex-direction: row; }
+%u-flex-direction-column { flex-direction: column; }
+
+/* FLEX-WRAP */
+%u-flex-wrap-wrap { flex-wrap: wrap; }
+%u-flex-wrap-wrap-reverse { flex-wrap: wrap-reverse; }
+%u-flex-wrap-nowrap { flex-wrap: nowrap; }
+
+/* FLEX-ALIGN-ITEMS */
+%u-flex-align-items-center { align-items: center; }
+%u-flex-align-items-flex-start { align-items: flex-start; }
+%u-flex-align-items-flex-end { align-items: flex-end; }
+%u-flex-align-items-stretch { align-items: stretch; }
+%u-flex-align-items-baseline { align-items: baseline; }
+
+/* FLEX-JUSTIFY-CONTENT */
+%u-flex-justify-content-center { justify-content: center; }
+%u-flex-justify-content-flex-start { justify-content: flex-start; }
+%u-flex-justify-content-flex-end { justify-content: flex-end; }
+%u-flex-justify-content-space-around { justify-content: space-around; }
+%u-flex-justify-content-space-between { justify-content: space-between; }
+
+/* FLEX-COMBO */
+%u-flex-total-centered {
+   @extend %u-flex-align-items-center,
+           %u-flex-justify-content-center;
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* MARGIN/PADDING_UTILITIES */
+/* ------------------------------------------------------------------------------------------ */
+
+/* CALC_SPACING */
+/* ------------------------------------------------------------------------------------------ */
+
+@each $break-name, $break-value in $GRID_MAP {
+   @each $side-name, $side-value in $SIDE_POSITIONS {
+      @each $layout-name, $layout-calc in $LAYOUT_CALC {
+         $selector: '';
+         $property: if($side-name == '', '', -#{$side-value});
+         $space-value: convert-px-rem($layout-calc);
+         
+         @if $break-name != '' {
+            @include create-mq($break-value) {
+               $selector: #{$side-name}#{$break-name}-#{$layout-name};
+            
+               %u-m#{$selector} {
+                  margin#{$property}: #{$space-value};
+               }
+
+               .u-m#{$selector} {
+                  margin#{$property}: #{$space-value} !important;
+               }
+            
+               %u-p#{$selector} {
+                  padding#{$property}: #{$space-value};
+               }
+
+               .u-p#{$selector} {
+                  padding#{$property}: #{$space-value} !important;
+               }
+            }
+         } @else {
+            $selector: #{$side-name}-#{$layout-name};
+
+            %u-m#{$selector} {
+               margin#{$property}: #{$space-value};
+            }
+      
+            .u-m#{$selector} {
+               margin#{$property}: #{$space-value} !important;
+            }
+      
+            %u-p#{$selector} {
+               padding#{$property}: #{$space-value};
+            }
+      
+            .u-p#{$selector} {
+               padding#{$property}: #{$space-value} !important;
+            }
+         }
+      }
+   }
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* FONT/TEXT_UTILITIES */
+/* ------------------------------------------------------------------------------------------ */
+
+/* FONT-STYLE */
+%u-bold { font-weight: bold; }
+.u-bold { font-weight: bold !important; }
+%u-no-bold { font-weight: normal; }
+%u-italic { font-style: italic; }
+%u-no-italic { font-style: normal; }
+
+/* TEXT-DECORATION */
+%u-underline { text-decoration: underline !important; }
+%u-strike { text-decoration: line-through; }
+%u-no-text-decoration { text-decoration: none; }
+%u-no-list-style { list-style: none;}
+%u-no-outline{ outline: none; }
+
+/* TEXT-TRANSFORM */
+%u-uppercase { text-transform: uppercase; }
+%u-capitalize { text-transform: capitalize; }
+%u-no-text-transform { text-transform: none; }
+
+/* TEXT-ALIGN */
+%u-text-align-left { text-align: left; }
+%u-text-align-center { text-align: center; }
+%u-text-align-right { text-align: right; }
+%u-text-align-justify { text-align: justify; }
+
+/* ------------------------------------------------------------------------------------------ */
+/* BACKGROUND_UTILITIES */
+/* ------------------------------------------------------------------------------------------ */
+
+/* BACKGROUND-SIZE */
+%u-background-size-cover { background-size: cover; }
+
+/* BACKGROUND-POSITION */
+%u-background-position-center { background-position: center; }
+
+/* BACKGROUND-COMBO */
+%u-background-cover-center {
+   @extend %u-background-size-cover,
+           %u-background-position-center;
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* ICON_UTILITIES */
+/* ------------------------------------------------------------------------------------------ */
+
+/* ICON */
+%u-icon {
+   @extend %u-display-inline-block;
+   width: 1em; /* Deve-se utilizar "em" para ser possível alterar o tamanho do font-size, já que a fonte raiz está em "rem" */
+   height: 1em; /* Deve-se utilizar "em" para ser possível alterar o tamanho do font-size, já que a fonte raiz está em "rem" */
+   stroke-width: 0;
+   stroke: currentColor;
+   fill: currentColor;
+   vertical-align: middle;
+}
+
+
+/* ------------------------------------------------------------------------------------------ */
+/* MIXED_UTILITIES */
+/* ------------------------------------------------------------------------------------------ */
+
+/* CURSOR */
+%u-cursor-pointer {
+   cursor: pointer;
+}

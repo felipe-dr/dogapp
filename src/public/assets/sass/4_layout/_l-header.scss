@@ -1,0 +1,13 @@
+/* ------------------------------------------------------------------------------------------ */
+/* HEADER */
+/* ------------------------------------------------------------------------------------------ */
+
+/* L-HEADER */
+.l-header {
+   @include var(background-color, color-primary);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: convert-px-rem(20);
+   border-bottom: convert-px-rem(5) solid map-get($VARS, color-quaternary);
+}

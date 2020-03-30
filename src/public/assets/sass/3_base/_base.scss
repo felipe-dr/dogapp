@@ -1,0 +1,41 @@
+/* ------------------------------------------------------------------------------------------ */
+/* BASE */
+/* ------------------------------------------------------------------------------------------ */
+
+*, 
+*::after,
+*::before {
+   margin: 0;
+   padding: 0;
+   box-sizing: inherit;
+}
+
+::selection {
+   @include var(background-color, color-primary);
+   @include var(color, color-tertiary);
+}
+
+html {
+   font-size: $base; /* 10px/16px ==> 0.625 x 100% ==> 1rem = 10px */
+   
+   @include create-mq($grid-bp-lg) {
+      font-size: 68.3592%;
+   }
+}
+
+body {
+   box-sizing: border-box;
+}
+
+img {
+   @extend %u-display-block; /* Remove espaço vazio a mais */
+   max-width: 100%;
+   border: 0;
+}
+
+input,
+select,
+button {
+   width: 100%;
+   margin-bottom: convert-px-rem(30);
+}

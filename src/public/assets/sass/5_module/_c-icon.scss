@@ -1,0 +1,56 @@
+/* ------------------------------------------------------------------------------------------ */
+/* C-ICON_MODULE */
+/* ------------------------------------------------------------------------------------------ */
+
+/* C-ICON */
+.c-icon {
+   @extend %u-icon;
+
+   /* C-ICON--SIZE */
+   &--size {
+      
+      /* C-ICON--SIZE-SMALL */
+      &-small {
+         font-size: convert-px-rem(20); /* 20px/10px */
+      }
+      
+      /* C-ICON--SIZE-MEDIUM */
+      &-medium {
+         font-size: convert-px-rem(40); /* 40px/10px */
+      }
+      
+      /* C-ICON--SIZE-LARGE */
+      &-large {
+         font-size: convert-px-rem(60); /* 60px/10px */
+      }
+   }
+    
+   /* C-ICON--ROTATE */
+   &--rotate {
+		
+		/* C-ICON--ROTATE-STRAIGHT */
+		&-straight {
+			transform: rotate(90deg);
+		}
+   }
+
+   /* C-ICON--COLOR */
+   &--color {
+      
+      /* C-ICON--COLOR-PRIMARY */
+      &-primary {
+         @include var(color, color-primary);
+      }
+      
+      /* C-ICON--COLOR-SECONDARY */
+      &-secondary {
+         @include var(color, color-secondary);
+      }
+   }
+}
+
+/* C-ICON__PAW_MODULE */
+/* ------------------------------------------------------------------------------------------ */
+.c-icon__paw {
+   margin-left: convert-px-rem(5);
+}

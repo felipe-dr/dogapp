@@ -1,0 +1,41 @@
+/* ------------------------------------------------------------------------------------------ */
+/* CONTENT */
+/* ------------------------------------------------------------------------------------------ */
+
+/* L-CONTENT */
+.l-content {
+
+   &__result {
+      display: flex;
+      flex-direction: column;
+      padding: 0 convert-px-rem(20) convert-px-rem(20) convert-px-rem(20);
+      border: convert-px-rem(5) dashed #000;
+   }
+   
+   &__title {
+      @include var(background-color, color-primary-transp);
+      position: relative;
+      top: 3rem;
+      line-height: normal;
+      text-align: center;
+      box-shadow: 0 convert-px-rem(3) convert-px-rem(3) map-get($VARS, color-quaternary);
+   }
+   
+   &__img {
+      display: flex;
+      justify-content: center;
+      
+      
+      > img {
+         height: convert-px-rem(160);
+         
+         @include create-mq($grid-bp-sm) {
+            height: convert-px-rem(250);
+         }         
+         
+         @include create-mq($grid-bp-lg) {
+            height: convert-px-rem(350);
+         }
+      }
+   }
+}

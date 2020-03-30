@@ -1,0 +1,53 @@
+/* ------------------------------------------------------------------------------------------ */
+/* C-BUTTON_MODULE */
+/* ------------------------------------------------------------------------------------------ */
+
+/* C-BUTTON */
+.c-button {
+   box-shadow: 0 convert-px-rem(3) convert-px-rem(3) map-get($VARS, color-quaternary);
+
+   /* C-BUTTON / C-BUTTON:LINK / C-BUTTON:VISITED */
+   &,
+   &:link,
+   &:visited {
+      @include var(transition, transition-medium);
+      @extend %u-display-inline-block;
+      @extend %u-no-text-decoration;
+      @extend %u-text-align-center;
+      @extend %u-cursor-pointer;
+      border: none;
+      line-height: inherit; /* Para manter o elemento <button> com a mesma proporção de um elemento <a> */
+      font-size: convert-px-rem($default-font-size);
+      color: inherit;
+   }
+
+   /* C-BUTTON:ACTIVE / C-BUTTON:FOCUS */
+   &:active,
+   &:focus {
+      @extend %u-no-outline; /* Remove a borda azul quando em active ou com foucs */
+   }
+
+   /* C-BUTTON--DEFAULT / C-BUTTON--DEFAULT:LINK / C-BUTTON--DEFAULT:VISITED */
+   &--default,
+   &--default:link,
+   &--default:visited {
+      padding: convert-px-rem(10) convert-px-rem(20);
+   }
+
+   /* C-BUTTON--COLOR-PRIMARY / C-BUTTON--COLOR-PRIMARY:LINK / C-BUTTON--COLOR-PRIMARY:VISITED */
+   &--color-primary,
+   &--color-primary:link,
+   &--color-primary:visited {
+      @include var(background-color, color-primary);
+      @include var(color, color-tertiary);
+   }
+
+
+   /* C-BUTTON--HOVER-PRIMARY */
+   &--hover-primary:hover {
+      
+      @include create-mq($grid-bp-md) {
+         @include var(color, color-secondary);
+      }
+   }
+}

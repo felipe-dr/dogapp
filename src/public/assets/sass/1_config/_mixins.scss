@@ -1,0 +1,77 @@
+/* ------------------------------------------------------------------------------------------ */
+/* VAR_MIXINS */
+/* ------------------------------------------------------------------------------------------ */
+
+@mixin var($property, $variable) {
+   #{$property}: map-get($VARS, $variable);
+   #{$property}: var(--#{$variable});
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* GRID_MIXINS */
+/* ------------------------------------------------------------------------------------------ */
+
+/* CREATE-MQ */
+@mixin create-mq($breakpoint) {
+   @if($breakpoint == 0) {
+      @content;
+   }
+   @else {
+      @media screen and (min-width: $breakpoint) {
+         @content;
+      }
+   }
+}
+
+/* CREATE-COL-CLASSES */
+@mixin create-col-classes($modifier, $grid-cols, $breakpoint) {
+   @include create-mq($breakpoint) {
+
+      &__col#{$modifier}-#{auto} {
+         flex: 0 0 auto; /* Redimensiona a largura da coluna em relação ao seu conteúdo */
+         max-width: none;
+      }
+
+      &__col#{$modifier}-offset-0 {
+         margin-left: 0;
+      }
+
+      &__col#{$modifier}-order-first {
+         order: -1;
+      }
+
+      &__col#{$modifier}-order-last {
+         order: $grid-cols + 1;
+      }
+
+      &__col#{$modifier}-order-0 {
+         order: 0;
+      }
+
+      @for $i from 1 through $grid-cols {
+         &__col#{$modifier}-#{$i} {
+            flex: 0 0 col-calc($i); /* 100 / (qtd cols definida / coluna corrente) * 1% para obter a unidade */
+            max-width: col-calc($i); /* Corrige quebra de linha da coluna no IE */
+         }
+
+         &__col#{$modifier}-offset-#{$i} {
+            margin-left: col-calc($i); /* 100 / (qtd cols definida / coluna corrente) * 1% para obter a unidade */
+         }
+
+         &__col#{$modifier}-order-#{$i} {
+            order: $i;
+         }
+      }
+   }
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* PSEUDO-ELEMENT_MIXINS */
+/* ------------------------------------------------------------------------------------------ */
+
+/* PSEUDO-ELEMENT */
+@mixin pseudo-element($content: '', $disp: block, $pos: absolute) {
+   content: $content;
+   display: $disp;
+   position: $pos;
+}
