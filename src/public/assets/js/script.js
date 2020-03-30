@@ -7,6 +7,5 @@ const settingStyles = new SettingStyles(
   '[data-setting="dogName"]',
   '[data-setting="dogImage"]',
   '[data-setting="saveConfig"]',
-  '[data-setting="contentResult"]'
 );
 settingStyles.init();

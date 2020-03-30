@@ -2,13 +2,12 @@
 import Request from './request.js';
 
 export default class SettingStyles {
-  constructor(config, listBreeds, dogName, dogImage, btnSaveConfig, contentResult) {
+  constructor(config, listBreeds, dogName, dogImage, btnSaveConfig) {
     this.config = document.querySelector(config);
     this.listBreeds = document.querySelector(listBreeds)
     this.dogName = document.querySelector(dogName);
     this.dogImage = document.querySelector(dogImage);
     this.btnSaveConfig = document.querySelector(btnSaveConfig);
-    this.contentResult = document.querySelector(contentResult);
 
     // Adiciona eventos de bind para ajustar o this
     this.handleChange = this.handleChange.bind(this);
@@ -54,7 +53,7 @@ export default class SettingStyles {
     const objImg = request.jsonData.message;
 
     // Adiciona tag img com a url da requisição
-    this.dogImage.innerHTML = `<img src="${objImg[this.randomBreedImg(objImg.length)]}" />`;
+    this.dogImage.innerHTML = `<img src="${objImg[this.randomBreedImg(objImg.length)]}" alt="${this.listBreeds.options[this.listBreeds.selectedIndex].value}" />`;
   }
 
   // Cria uma lista de todas as raças obtida na requisição e adiciona no elemento DOM
@@ -86,6 +85,10 @@ export default class SettingStyles {
   // Adiciona o evento change para monitorar mudanças no form
   addChangeEvent() {
     this.config.addEventListener('change', this.handleChange);
+  }
+  
+  // Adiciona o evento click
+  addClickEvent() {
     this.btnSaveConfig.addEventListener('click', this.saveConfig);
   }
 
@@ -145,6 +148,7 @@ export default class SettingStyles {
   async init() {
     if (this.config && this.listBreeds && this.dogName && this.dogImage && this.saveConfig) {
       this.addChangeEvent();
+      this.addClickEvent();
       await this.crateDataList();
       this.getBreedImg();
       this.setConfig();
