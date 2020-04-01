@@ -43,7 +43,7 @@ button {
 .t2 {
    @extend %u-no-bold;
    @include var(color, color-secondary);
-   font-size: convert-px-rem(50);
+   font-size: inherit;
 }
 
 /* ------------------------------------------------------------------------------------------ */

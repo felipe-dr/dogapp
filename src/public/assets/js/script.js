@@ -4,8 +4,10 @@ import SettingStyles from './modules/setting-styles.js';
 const settingStyles = new SettingStyles(
   '[data-setting="config"]',
   '[data-setting="listBreeds"]',
-  '[data-setting="dogName"]',
-  '[data-setting="dogImage"]',
+  '[data-setting="listColors"]',
+  '[data-setting="listFontFamily"]',
+  '[data-setting="resultDogName"]',
+  '[data-setting="resultDogImage"]',
   '[data-setting="saveConfig"]',
 );
 settingStyles.init();

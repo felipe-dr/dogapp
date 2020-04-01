@@ -22,11 +22,13 @@
 
   // Imports
   class SettingStyles {
-    constructor(config, listBreeds, dogName, dogImage, btnSaveConfig) {
+    constructor(config, listBreeds, listColors, listFontFamily, resultDogName, resultDogImage, btnSaveConfig) {
       this.config = document.querySelector(config);
       this.listBreeds = document.querySelector(listBreeds);
-      this.dogName = document.querySelector(dogName);
-      this.dogImage = document.querySelector(dogImage);
+      this.listColors = document.querySelector(listColors);
+      this.listFontFamily = document.querySelector(listFontFamily);
+      this.resultDogName = document.querySelector(resultDogName);
+      this.resultDogImage = document.querySelector(resultDogImage);
       this.btnSaveConfig = document.querySelector(btnSaveConfig); // Adiciona eventos de bind para ajustar o this
 
       this.handleChange = this.handleChange.bind(this);
@@ -34,11 +36,14 @@
       this.saveConfig = this.saveConfig.bind(this); // Objeto de estilos
 
       this.handleStyle = {
-        titleElement: this.dogName,
+        titleElement: this.resultDogName,
         methodGetBreedImg: this.getBreedImg,
 
         breed() {
-          this.methodGetBreedImg();
+          // Intervalo de tempo para carregar a raça corretamente
+          setTimeout(() => {
+            this.methodGetBreedImg();
+          }, 50);
         },
 
         dogName(value) {
@@ -54,6 +59,12 @@
         }
 
       };
+    } // 
+
+
+    startHandleStyleRender() {
+      this.resultDogName.style.color = this.listColors.options[this.listColors.selectedIndex].value;
+      this.resultDogName.style.fontFamily = this.listFontFamily.options[this.listFontFamily.selectedIndex].value;
     } // Randomiza um índice com a imagem
 
 
@@ -70,7 +81,7 @@
       await request.fetchUrl();
       const objImg = request.jsonData.message; // Adiciona tag img com a url da requisição
 
-      this.dogImage.innerHTML = `<img src="${objImg[this.randomBreedImg(objImg.length)]}" alt="${this.listBreeds.options[this.listBreeds.selectedIndex].value}" />`;
+      this.resultDogImage.innerHTML = `<img src="${objImg[this.randomBreedImg(objImg.length)]}" alt="${this.listBreeds.options[this.listBreeds.selectedIndex].value}" />`;
     } // Cria uma lista de todas as raças obtida na requisição e adiciona no elemento DOM
 
 
@@ -155,12 +166,13 @@
 
 
     async init() {
-      if (this.config && this.listBreeds && this.dogName && this.dogImage && this.saveConfig) {
+      if (this.config && this.listBreeds && this.listColors && this.listFontFamily && this.resultDogName && this.resultDogImage && this.saveConfig) {
+        await this.crateDataList();
+        this.setConfig();
+        this.getBreedImg();
+        this.startHandleStyleRender();
         this.addChangeEvent();
         this.addClickEvent();
-        await this.crateDataList();
-        this.getBreedImg();
-        this.setConfig();
       }
 
       return this;
@@ -169,7 +181,7 @@
   }
 
   // Imports
-  const settingStyles = new SettingStyles('[data-setting="config"]', '[data-setting="listBreeds"]', '[data-setting="dogName"]', '[data-setting="dogImage"]', '[data-setting="saveConfig"]');
+  const settingStyles = new SettingStyles('[data-setting="config"]', '[data-setting="listBreeds"]', '[data-setting="listColors"]', '[data-setting="listFontFamily"]', '[data-setting="resultDogName"]', '[data-setting="resultDogImage"]', '[data-setting="saveConfig"]');
   settingStyles.init();
 
 })));

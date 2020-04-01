@@ -36,9 +36,9 @@
                   <label class="c-form__label" for="breed">Selecione uma raça</label>
                   <select id="breed" name="breed" data-setting="listBreeds"></select>
                   <label class="c-form__label" for="dogName">Digite o nome do cachorro</label>
-                  <input id="dogName" type="text" name="dogName" placeholder="Tob">
+                  <input id="dogName" type="text" name="dogName" placeholder="Tob" maxlength="20">
                   <label class="c-form__label" for="color">Selecione uma cor</label>
-                  <select id="color" name="color">
+                  <select id="color" name="color" data-setting="listColors">
                      <option value="#4169E1">Azul</option>
                      <option value="#00FF7F">Verde</option>
                      <option value="#FF4500">Laranja</option>
@@ -46,18 +46,18 @@
                      <option value="#FFD700">Amarelo</option>
                   </select>
                   <label class="c-form__label" for="fontFamily">Selecione uma fonte</label>
-                  <select id="fontFamily" name="fontFamily">
+                  <select id="fontFamily" name="fontFamily" data-setting="listFontFamily">
                      <option value="Anton">Anton</option>
                      <option value="Comic Neue">Comic Neue</option>
                      <option value="Cinzel Decorative">Cinzel</option>
                      <option value="Dancing Script">Dancing Script</option>
                      <option value="Indie Flower">Indie Flower</option>
                   </select>
-                  <button class="c-button c-button--default c-button--color-primary c-button--hover-primary" data-setting="saveConfig">Salvar Configurações</button>
+                  <button class="c-button c-button--full-width c-button--default c-button--color-primary c-button--hover-primary" data-setting="saveConfig">Salvar Configurações</button>
                </div>
                <div class="l-content__result" data-setting="contentResult">
-                  <h2 class="l-content__title t2" data-setting="dogName">Nome do cachorro</h2>
-                  <div class="l-content__img" data-setting="dogImage"></div>
+                  <h2 class="l-content__title t2" data-setting="resultDogName">Nome do cachorro</h2>
+                  <div class="l-content__img" data-setting="resultDogImage"></div>
                </div>
             </div>
          </form>

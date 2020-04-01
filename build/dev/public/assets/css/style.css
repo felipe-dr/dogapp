@@ -95,6 +95,26 @@
   color: #fff;
   color: var(--color-tertiary); }
 
+::-webkit-input-placeholder {
+  color: rgba(122, 104, 81, 0.3);
+  color: var(--color-primary-transp); }
+
+::-moz-placeholder {
+  color: rgba(122, 104, 81, 0.3);
+  color: var(--color-primary-transp); }
+
+:-ms-input-placeholder {
+  color: rgba(122, 104, 81, 0.3);
+  color: var(--color-primary-transp); }
+
+::-ms-input-placeholder {
+  color: rgba(122, 104, 81, 0.3);
+  color: var(--color-primary-transp); }
+
+::placeholder {
+  color: rgba(122, 104, 81, 0.3);
+  color: var(--color-primary-transp); }
+
 html {
   font-size: 62.5%;
   /* 10px/16px ==> 0.625 x 100% ==> 1rem = 10px */ }
@@ -111,11 +131,16 @@ img {
   max-width: 100%;
   border: 0; }
 
+label {
+  color: #7A6851;
+  color: var(--color-primary); }
+
 input,
-select,
-button {
+select {
   width: 100%;
-  margin-bottom: 3rem; }
+  margin-bottom: 3rem;
+  padding: 0.5rem;
+  border: 0.2rem solid #7A6851; }
 
 /* ------------------------------------------------------------------------------------------ */
 /* BODY_TYPOGRAPHY */
@@ -125,7 +150,7 @@ body {
   color: #000;
   color: var(--color-quaternary);
   font-family: 'Indie Flower', sans-serif;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   line-height: 1.7; }
 
 /* ------------------------------------------------------------------------------------------ */
@@ -154,7 +179,7 @@ button {
 .t2 {
   color: #F5DFBF;
   color: var(--color-secondary);
-  font-size: 5rem; }
+  font-size: inherit; }
 
 /* ------------------------------------------------------------------------------------------ */
 /* TEXT_TYPOGRAPHY */
@@ -203,7 +228,7 @@ body, .t1, .t2 {
 
 /* TEXT-TRANSFORM */
 /* TEXT-ALIGN */
-.l-footer, .c-button, .c-button:link, .c-button:visited {
+.l-content__title, .l-footer, .c-button, .c-button:link, .c-button:visited {
   text-align: center; }
 
 /* ------------------------------------------------------------------------------------------ */
@@ -277,32 +302,34 @@ body, .t1, .t2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  padding: 0 2rem 2rem 2rem;
-  border: 0.5rem dashed #000; }
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 3rem;
+  padding: 2rem;
+  border: 0.5rem dashed rgba(122, 104, 81, 0.3); }
+  @media screen and (min-width: 62em) {
+    .l-content__result {
+      margin-top: 0; } }
 
 .l-content__title {
   background-color: rgba(122, 104, 81, 0.3);
   background-color: var(--color-primary-transp);
-  position: relative;
-  top: 3rem;
+  position: absolute;
+  top: -2px;
+  z-index: 1;
+  padding: 1rem 2rem;
   line-height: normal;
-  text-align: center;
-  -webkit-box-shadow: 0 0.3rem 0.3rem #000;
-  box-shadow: 0 0.3rem 0.3rem #000; }
+  -webkit-box-shadow: 0 0.1rem 0.3rem;
+  box-shadow: 0 0.1rem 0.3rem; }
 
 .l-content__img {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center; }
+  display: flex; }
   .l-content__img > img {
-    height: 16rem; }
+    height: 19rem; }
     @media screen and (min-width: 36em) {
       .l-content__img > img {
         height: 25rem; } }
@@ -340,6 +367,7 @@ body, .t1, .t2 {
   /* C-BUTTON / C-BUTTON:LINK / C-BUTTON:VISITED */
   /* C-BUTTON:ACTIVE / C-BUTTON:FOCUS */
   /* C-BUTTON--DEFAULT / C-BUTTON--DEFAULT:LINK / C-BUTTON--DEFAULT:VISITED */
+  /* C-BUTTON--DEFAULT / C-BUTTON--DEFAULT:LINK / C-BUTTON--DEFAULT:VISITED */
   /* C-BUTTON--COLOR-PRIMARY / C-BUTTON--COLOR-PRIMARY:LINK / C-BUTTON--COLOR-PRIMARY:VISITED */
   /* C-BUTTON--HOVER-PRIMARY */ }
   .c-button, .c-button:link, .c-button:visited {
@@ -350,10 +378,12 @@ body, .t1, .t2 {
     border: none;
     line-height: inherit;
     /* Para manter o elemento <button> com a mesma proporção de um elemento <a> */
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: inherit; }
   .c-button:active, .c-button:focus {
     /* Remove a borda azul quando em active ou com foucs */ }
+  .c-button--full-width {
+    width: 100%; }
   .c-button--default, .c-button--default:link, .c-button--default:visited {
     padding: 1rem 2rem; }
   .c-button--color-primary, .c-button--color-primary:link, .c-button--color-primary:visited {

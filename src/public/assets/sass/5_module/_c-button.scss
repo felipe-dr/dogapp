@@ -27,6 +27,11 @@
       @extend %u-no-outline; /* Remove a borda azul quando em active ou com foucs */
    }
 
+   /* C-BUTTON--DEFAULT / C-BUTTON--DEFAULT:LINK / C-BUTTON--DEFAULT:VISITED */   
+   &--full-width {
+      width: 100%;
+   }
+
    /* C-BUTTON--DEFAULT / C-BUTTON--DEFAULT:LINK / C-BUTTON--DEFAULT:VISITED */
    &--default,
    &--default:link,
