@@ -42,7 +42,7 @@ export default class SettingStyles {
     };
   }
 
-  // 
+  // Renderização de estilo inicial
   startHandleStyleRender() {
     this.resultDogName.style.color = this.listColors.options[this.listColors.selectedIndex].value;
     this.resultDogName.style.fontFamily = this.listFontFamily.options[this.listFontFamily.selectedIndex].value;
