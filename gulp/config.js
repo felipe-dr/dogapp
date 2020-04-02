@@ -30,6 +30,8 @@ const js_uglify                   = require('gulp-uglify')
 const rollup                      = require('gulp-better-rollup');
 const babel                       = require('rollup-plugin-babel');
 const resolve                     = require('rollup-plugin-node-resolve');
+const rollup_uglify               = require('rollup-plugin-uglify');
+const { terser }               = require('rollup-plugin-terser');
 const commonjs                    = require('rollup-plugin-commonjs');
 const js_hint                     = require('gulp-jshint')
 const image                       = require('gulp-image')
@@ -59,6 +61,8 @@ const plugins = {
 	css_lint_report,
 	js_uglify, js_hint,
 	rollup,
+	rollup_uglify,
+	terser,
 	babel,
 	resolve,
 	commonjs,
@@ -181,7 +185,7 @@ const paths = {
 			// input: [folders.input.src + folders.input.static + folders.input.assets + folders.input.js + '1_vendors/libs/**/*.js',
 			// 		folders.input.src + folders.input.static + folders.input.assets + folders.input.js + '1_vendors/plugins/**/*.js',
 			// 		folders.input.src + folders.input.static + folders.input.assets + folders.input.js + '**/*.js'],
-			input: folders.input.src + folders.input.static + folders.input.assets + folders.input.js + '**/*.js',
+			input: folders.input.src + folders.input.static + folders.input.assets + folders.input.js + 'script.js',
 			output: folders.output.env + folders.output.static + folders.output.assets + folders.output.js,
 		},
 		log: {

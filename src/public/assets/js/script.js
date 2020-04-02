@@ -1,4 +1,6 @@
 // Imports
+import "core-js/stable";
+import 'whatwg-fetch';
 import SettingStyles from './modules/setting-styles.js';
 
 const settingStyles = new SettingStyles(

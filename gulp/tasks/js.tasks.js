@@ -38,14 +38,14 @@ function jsAllTasks() {
 	display.displayLogTasks('all', 'js', config.paths.js.all.input)
 	
 	return config.gulp.src(config.paths.js.all.input)
-		.pipe(config.plugins.concat(`${config.options.js.fileNames.all}.js`))
+	  // .pipe(config.plugins.concat(`${config.options.js.fileNames.all}.js`))
 		.pipe(config.plugins.bytediff.start())
 		.pipe(config.plugins.rollup({ plugins: [
-            config.plugins.js_uglify(),
 			config.plugins.babel(),
+			config.plugins.terser(),
 			config.plugins.resolve(),
-			config.plugins.commonjs()
-		] }, 'umd'))
+			config.plugins.commonjs(),
+		] }, 'iife'))
 		// .pipe(config.env.production(config.plugins.js_uglify()))
 		.pipe(config.env.production(config.plugins.rename(`${config.options.js.fileNames.all}.min.js`)))
 		.pipe(config.plugins.bytediff.stop())
