@@ -40,7 +40,7 @@ Na pasta "build" / "prod" constam os arquivos em sua versão final, ou seja, ess
 <li>Html minificado</li>
 <li>Css minificado e Prefixado para aumentar a compatibilidade entre os navegadores</li>
 <li>Remoção de código css não utilizado por meio do Css purge</li>
-<li>JavaScript minificado e utilização do Babel Polyfill para transpilar em código Js em versões compatíveis com demais browsers</li>
+<li>JavaScript minificado e utilização do Babel para transpilar o código Js em versões compatíveis com demais browsers</li>
 <li>Utilizado o whatwg-fetch no JS para tornar a requisição fetch compatível com demais browsers que não possuem essa API</li>
 <li>Ícone em SVG otimizado</li>
 </ol>
