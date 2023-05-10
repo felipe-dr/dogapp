@@ -38,7 +38,7 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.2",
-    "gulp-w3c-html-validator": "^1.4.4",
+    "gulp-w3c-html-validator": "^5.2.0",
     "htmlhint-stylish": "^1.0.3",
     "i": "^0.3.6",
     "jshint": "^2.10.3",
